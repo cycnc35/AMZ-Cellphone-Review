@@ -19,4 +19,4 @@ Also, visualize results with visualization tool (i.g Matplotlib) to make results
     - NLTK is a tool that we can use to process text data into numbers which is input-friendly data type.
 
 To install these libraries you can just type the command below in your terminal:
-    - `pip install -r requirements.txt`
+`pip install -r requirements.txt`
