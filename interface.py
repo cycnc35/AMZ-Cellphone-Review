@@ -22,7 +22,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.layout = html.Div([
     html.H1(id="project_title", style={"textAlign": "center"},
             children="Cell phone reviews"),
-
+    html.Br(),
     dcc.Graph(id="brand_rating"),
     dcc.Slider(
         id="brand_slider",
@@ -52,15 +52,13 @@ def update_brand_rating(brand_idx):
     filtered_df = items[items.brand == brands[brand_idx-1]]
     print(filtered_df.head())
     ratings = filtered_df.groupby('rating').size().reset_index(name='counts')
-    print(type(ratings))
-    print(ratings)
+    # print(type(ratings))
+    # print(ratings)
+    data = go.Data([go.Bar(x=list(ratings['rating']), y=list(ratings['counts']))])
+    layout = go.Layout(title={"text":"ratings vs. brands", "xanchor": "left"}, font={"size":20})
+    figure = go.Figure(data=data, layout=layout)
 
-    return {
-        'data': [
-            go.Bar(x=list(ratings['rating']), y=list(ratings['counts']))
-        ],
-        'layout': {}
-    }
+    return figure
 
 
 
