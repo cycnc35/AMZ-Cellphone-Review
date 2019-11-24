@@ -9,7 +9,7 @@ import dash
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
-from visualization_functions import brand_counts, plot_stacked_rating_hist_allbrands, create_df
+from visualization_functions import brand_counts, plot_stacked_rating_hist_allbrands, create_helpful_vote_dict
 
 
 def data_preprocessing(items, reviews):
@@ -32,7 +32,7 @@ def data_preprocessing(items, reviews):
         drop_duplicates(['asin'])
     brands = sorted(list(set(review_item["brand"])))
 
-    helpful_vote_dict = create_df(helpful_vote, brands)
+    helpful_vote_dict = create_helpful_vote_dict(helpful_vote, brands)
     return review_item, helpful_vote, brands, helpful_vote_dict
 
 def main():
