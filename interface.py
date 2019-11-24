@@ -13,15 +13,7 @@ helpful_vote = review_item.sort_values('helpfulVotes', ascending=False).drop_dup
 brands = sorted(list(set(review_item["brand"])))
 len_brand = len(brands)
 
-
-def create_df(helpful_vote):
-    list = {}
-    for i in brands:
-        list[i] = helpful_vote[helpful_vote['brand'] == i]
-    return list
-
-
-df = create_df(helpful_vote)
+df = create_df(helpful_vote, brands)
 
 fnameDict = {
     'ASUS': df["ASUS"]["asin"],
@@ -45,20 +37,29 @@ app.layout = html.Div([
         [
             html.H1(id="project_title", style={"textAlign": "center"},
                     children="Visualization of cell phone reviews data"),
+            html.Div([
+                html.P('This website provides user a detail reviews from Amazon. Included "Sales percentage" from Amazon '
+                       'website, satisfaction histogram in different brands.'),
+                html.P('User can selects a certain brand to see the total satisfaction in certain brand. Also, selecting '
+                       'a certain type of cell phone, the website will provides the highest vote review from Amazon.')
+                ],style={'width': '60%', 'margin': "auto", 'text-align': 'center'}
+            ),
             html.Br(),
             dcc.Graph(id="sales_volume", figure=brand_counts(review_item)),
             html.Br(),
             dcc.Graph(id="overall_rating", figure=plot_stacked_rating_hist_allbrands(review_item)),
             html.Br(),
-            html.Div([
-                dcc.Dropdown(
-                    id='brand_dropdown',
-                    options=[{'label': name, 'value': name} for name in brands],
-                    style={'height': '30px', 'width': '100px'},
-                    value='ASUS',
-                    clearable=False,
+            html.Div(
+                [
+                    dcc.Dropdown(
+                        id='brand_dropdown',
+                        options=[{'label': name, 'value': name} for name in brands],
+                        style={'height': '30px', 'width': '100px'},
+                        value='ASUS',
+                        clearable=False,
+                    ),
+                ],style={'width': '20%', 'display': 'inline-block'}
             ),
-            ],style={'width': '20%', 'display': 'inline-block'}),
 
             dcc.Graph(id="brand_rating")
         ]
@@ -124,8 +125,11 @@ def update_date_dropdown(name):
 def set_display_children(selected_value):
     res = ""
     res += helpful_vote.loc[helpful_vote['asin'] == selected_value]['body']
+
     return res
 
+
+print(helpful_vote.loc[helpful_vote['asin'] == "B07CJ7DLHL"]['helpfulVotes'])
 
 if __name__ == '__main__':
     app.run_server(debug=True)

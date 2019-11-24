@@ -33,3 +33,9 @@ def plot_stacked_rating_hist_allbrands(review_item):
     figure = go.Figure(data=traces, layout=layout)
 
     return figure
+
+def create_df(helpful_vote, brands):
+    list = {}
+    for i in brands:
+        list[i] = helpful_vote[helpful_vote['brand'] == i]
+    return list
