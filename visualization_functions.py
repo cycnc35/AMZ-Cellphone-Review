@@ -1,5 +1,5 @@
-import pandas as pd
 import plotly.graph_objs as go
+
 
 def brand_counts(review_item):
     count = review_item.groupby("brand").size()
@@ -10,6 +10,7 @@ def brand_counts(review_item):
     figure = go.Figure(data=data, layout=layout)
 
     return figure
+
 
 def plot_stacked_rating_hist_allbrands(review_item):
     brands = sorted(list(set(review_item["brand"])))
@@ -33,6 +34,7 @@ def plot_stacked_rating_hist_allbrands(review_item):
     figure = go.Figure(data=traces, layout=layout)
 
     return figure
+
 
 def create_df(helpful_vote, brands):
     list = {}
