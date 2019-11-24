@@ -13,11 +13,14 @@ helpful_vote = review_item.sort_values('helpfulVotes', ascending=False).drop_dup
 brands = sorted(list(set(review_item["brand"])))
 len_brand = len(brands)
 
+
 def create_df(helpful_vote):
     list = {}
     for i in brands:
         list[i] = helpful_vote[helpful_vote['brand'] == i]
     return list
+
+
 df = create_df(helpful_vote)
 
 fnameDict = {
@@ -70,7 +73,8 @@ app.layout = html.Div([
             id='name-dropdown',
             options=[{'label':name, 'value':name} for name in names],
             placeholder="Select a brand",
-            value = list(fnameDict.keys())[0]
+            value = list(fnameDict.keys())[0],
+            clearable=False
             ),
             ],style={'width': '20%', 'display': 'inline-block'}),
 
@@ -78,6 +82,7 @@ app.layout = html.Div([
         dcc.Dropdown(
             id='item-dropdown',
             placeholder="Select a type",
+            clearable=False
             ),
             ],style={'width': '20%', 'display': 'inline-block'}
         ),
@@ -92,7 +97,6 @@ app.layout = html.Div([
     [Input('brand_dropdown', 'value')])
 def update_brand_rating(brand_name):
     filtered_df = review_item[review_item.brand == brand_name]
-    print(filtered_df.head())
     ratings = filtered_df.groupby('rating_review').size().reset_index(name='counts')
     ratings['counts'] = ratings['counts']
 
