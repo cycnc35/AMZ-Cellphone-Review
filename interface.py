@@ -99,6 +99,7 @@ def main():
                         clearable=False
                     ), ], style={'width': '100%', 'display': 'inline-block'}),
                 html.Hr(),
+                html.P('The selecting review will be displayed below: ' + "\n"),
                 html.Div(id='display-selected-values')
             ]
         ),
