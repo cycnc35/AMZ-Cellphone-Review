@@ -10,31 +10,8 @@ from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 from visualization_functions import brand_counts, plot_stacked_rating_hist_allbrands,\
-     create_helpful_vote_dict
+     data_preprocessing
 
-
-def data_preprocessing(items, reviews):
-    """
-    Do data pre-processing, merge to data into one named "review_item"
-    Extract the highest vote for review and create another table named "helpful_vote"
-
-    :param items: dataframe, csv file
-    :param reviews: dataframe, csv file
-
-    :return review_item: dataframe, merge two data source
-            helpful_vote: dataframe, with highest helpful vote
-            brands: list, brand name of each cell phone
-            helpful_vote_df: dataframe, each type of cellphone with highest vote
-    """
-
-    review_item = reviews.join(items.set_index('asin'), on='asin', how='inner', lsuffix='_review'
-                               , rsuffix='_item')
-    helpful_vote = review_item.sort_values('helpfulVotes', ascending=False).\
-        drop_duplicates(['asin'])
-    brands = sorted(list(set(review_item["brand"])))
-
-    helpful_vote_dict = create_helpful_vote_dict(helpful_vote, brands)
-    return review_item, helpful_vote, brands, helpful_vote_dict
 
 def main():
     """
@@ -81,7 +58,8 @@ def main():
                 dcc.Dropdown(
                     id='brand_dropdown0',
                     options=[{'label': name, 'value': name} for name in brands],
-                    value='ASUS'
+                    value='ASUS',
+                    clearable=False
                 ),
                 html.Br(),
                 dcc.Graph(id="sales_volume_of_type"),
@@ -94,9 +72,8 @@ def main():
                         dcc.Dropdown(
                             id='brand_dropdown',
                             options=[{'label': name, 'value': name} for name in brands],
-                            style={'height': '30px', 'width': '100px'},
                             value='ASUS',
-                            clearable=False,
+                            clearable=False
                         ),
                     ], style={'width': '90%', 'display': 'inline-block'}),
                 dcc.Graph(id="brand_rating")
@@ -170,8 +147,9 @@ def main():
         brand_type = review_item.groupby(["brand", "asin"]).size()
         labels = brand_type.loc[brand, :].index.get_level_values(1)
         values = brand_type.loc[brand, :].values
-        layout = go.Layout(title={"text":"Sales Volume of Type in Each Brand", "xanchor": "left",
-                                  'yanchor': 'top', 'x':0.35, 'y':0.9}, font={"size":20})
+        layout = go.Layout(title={"text":"Sales Volume for each type of " + brand,
+                                  "xanchor": "left", 'yanchor': 'top', 'x':0.35, 'y':0.9},
+                           font={"size":20})
         data = go.Data([go.Pie(labels=labels, values=values, textinfo='none')])
         figure = go.Figure(data=data, layout=layout)
 
