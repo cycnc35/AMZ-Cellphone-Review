@@ -20,17 +20,17 @@ To install these libraries you can simply type the command below in your termina
 `pip install -r requirements.txt`
 
 ## Directory Structure
-
-├── Data
-│   ├── items.csv
-│   └── reviews.csv
-├── Homework\ 5_\ Project\ Design.docx
-├── LICENSE
-├── README.md
-├── __pycache__
-│   └── visualization_functions.cpython-36.pyc
-├── interface.py
-├── requirements.txt
-├── setup.py
-├── technologies_reviews.pptx
-└── visualization_functions.py
+```
+|   Data
+|   |   items.csv
+|   |   reviews.csv
+|-- Homework\ 5_\ Project\ Design.docx
+|-- LICENSE
+|-- README.md
+|-- __pycache__
+|   | visualization_functions.cpython-36.pyc
+|-- interface.py
+|-- requirements.txt
+|-- setup.py
+|-- technologies_reviews.pptx
+|-- visualization_functions.py
