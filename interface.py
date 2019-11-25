@@ -9,7 +9,8 @@ import dash
 from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
-from visualization_functions import brand_counts, plot_stacked_rating_hist_allbrands, create_helpful_vote_dict
+from visualization_functions import brand_counts, plot_stacked_rating_hist_allbrands,\
+     create_helpful_vote_dict
 
 
 def data_preprocessing(items, reviews):
@@ -46,16 +47,16 @@ def main():
     review_item, helpful_vote, brands, helpful_vote_dict = data_preprocessing(items, reviews)
 
     helpful_vote_dict = {
-        'ASUS': helpful_vote_dict["ASUS"]["asin"],
-        'Apple': helpful_vote_dict["Apple"]["asin"],
-        'Google': helpful_vote_dict["Google"]["asin"],
-        'HUAWEI': helpful_vote_dict["HUAWEI"]["asin"],
-        'Motorola': helpful_vote_dict['Motorola']["asin"],
-        'Nokia': helpful_vote_dict['Nokia']["asin"],
-        'OnePlus': helpful_vote_dict['OnePlus']["asin"],
-        'Samsung': helpful_vote_dict['Samsung']["asin"],
-        'Sony': helpful_vote_dict['Sony']["asin"],
-        'Xiaomi': helpful_vote_dict['Xiaomi']["asin"]
+        'ASUS': helpful_vote_dict["ASUS"]["title_item"],
+        'Apple': helpful_vote_dict["Apple"]["title_item"],
+        'Google': helpful_vote_dict["Google"]["title_item"],
+        'HUAWEI': helpful_vote_dict["HUAWEI"]["title_item"],
+        'Motorola': helpful_vote_dict['Motorola']["title_item"],
+        'Nokia': helpful_vote_dict['Nokia']["title_item"],
+        'OnePlus': helpful_vote_dict['OnePlus']["title_item"],
+        'Samsung': helpful_vote_dict['Samsung']["title_item"],
+        'Sony': helpful_vote_dict['Sony']["title_item"],
+        'Xiaomi': helpful_vote_dict['Xiaomi']["title_item"]
     }
 
     names = list(helpful_vote_dict.keys())
@@ -97,7 +98,7 @@ def main():
                             value='ASUS',
                             clearable=False,
                         ),
-                    ], style={'width': '20%', 'display': 'inline-block'}),
+                    ], style={'width': '90%', 'display': 'inline-block'}),
                 dcc.Graph(id="brand_rating")
             ]
         ),
@@ -119,7 +120,7 @@ def main():
                         id='item-dropdown',
                         placeholder="Select a type",
                         clearable=False
-                    ), ], style={'width': '20%', 'display': 'inline-block'}),
+                    ), ], style={'width': '100%', 'display': 'inline-block'}),
                 html.Hr(),
                 html.Div(id='display-selected-values')
             ]
@@ -158,10 +159,9 @@ def main():
         [dash.dependencies.Input('item-dropdown', 'value')])
     def set_display_children(selected_value):
         res = ""
-        res += helpful_vote.loc[helpful_vote['asin'] == selected_value]['body']
-
+        res += helpful_vote.loc[helpful_vote['title_item'] == selected_value]['body']
         return res
-    
+
     @app.callback(
         Output('sales_volume_of_type', 'figure'),
         [Input('brand_dropdown0', 'value')]
@@ -170,10 +170,10 @@ def main():
         brand_type = review_item.groupby(["brand", "asin"]).size()
         labels = brand_type.loc[brand, :].index.get_level_values(1)
         values = brand_type.loc[brand, :].values
-        layout = go.Layout(title={"text":"Sales Volume of Type in Each Brand", 
-                                  "xanchor": "left",'yanchor': 'top', 'x':0.35, 'y':0.9}, font={"size":20})
+        layout = go.Layout(title={"text":"Sales Volume of Type in Each Brand", "xanchor": "left",
+                                  'yanchor': 'top', 'x':0.35, 'y':0.9}, font={"size":20})
         data = go.Data([go.Pie(labels=labels, values=values, textinfo='none')])
-        figure = go.Figure(data=data,layout=layout)
+        figure = go.Figure(data=data, layout=layout)
 
         return figure
 

@@ -26,8 +26,11 @@ To install these libraries you can simply type the command below in your termina
 ## Directory Structure
 ```
 |   Data
-|   |   items.csv
-|   |   reviews.csv
+|   | items.csv
+|   | reviews.csv
+|-- Docs
+|   | Component_specification.md
+|   | Functional_specification.md
 |-- images
 |   | images1.png
 |   | images2.png
