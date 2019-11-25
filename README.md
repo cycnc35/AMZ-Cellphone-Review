@@ -37,13 +37,12 @@ To install these libraries you can simply type the command below in your termina
 |-- Homework\ 5_\ Project\ Design.docx
 |-- LICENSE
 |-- README.md
-|-- __pycache__
-|   | visualization_functions.cpython-36.pyc
 |-- interface.py
 |-- requirements.txt
 |-- setup.py
 |-- technologies_reviews.pptx
 |-- visualization_functions.py
+|-- test_visualization_functions.py
 ```
 
 ## Tutorial
