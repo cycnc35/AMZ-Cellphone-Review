@@ -25,24 +25,27 @@ To install these libraries you can simply type the command below in your termina
 
 ## Directory Structure
 ```
-|   Data
-|   | items.csv
-|   | reviews.csv
+|-- AMZ-Cellphone-Review
+|   |   | interface.py
+|   |   | visualization_functions.py
+|   |   | data
+|   |   |   | items.csv
+|   |   |   | reviews.csv
+|   |   | test
+|   |   |   | test_visualization_functions.py
 |-- Docs
 |   | Component_specification.md
 |   | Functional_specification.md
+|   | Homework\ 5_\ Project\ Design.docx
+|   | technologies_reviews.pptx
 |-- images
 |   | images1.png
 |   | images2.png
-|-- Homework\ 5_\ Project\ Design.docx
 |-- LICENSE
 |-- README.md
-|-- interface.py
 |-- requirements.txt
 |-- setup.py
-|-- technologies_reviews.pptx
-|-- visualization_functions.py
-|-- test_visualization_functions.py
+|-- .gitignore
 ```
 
 ## Tutorial
