@@ -53,5 +53,5 @@ In the dashboard, there are some dropdowns that you can choose which brand you a
 If you are interested in ASUS, then choose ASUS.
 ![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/image1.png)
 
-If you are interested in Apple, then chhose Apple.
+If you are interested in Apple, then choose Apple.
 ![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/image2.png)
