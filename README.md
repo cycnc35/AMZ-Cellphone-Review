@@ -38,3 +38,13 @@ To install these libraries you can simply type the command below in your termina
 |-- setup.py
 |-- technologies_reviews.pptx
 |-- visualization_functions.py
+```
+
+## Tutorial
+After cloning the repository from our github, you can simply run the the interface.py file in your
+terminal. After running, there is an url link showing in the result, copy the link and paste to the 
+browser. Now, you can start using the dashboard.
+
+In the dashboard, there are some dropdowns that you can choose which brand you are interested in.
+![Tutorial](/images/images1.png)
+![Tutorial](/images/images2.png)
