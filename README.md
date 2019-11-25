@@ -3,6 +3,10 @@
 This project is about to analyze consumers' opinions about cellphones they bought on Amazon.
 Also, we visualize results with visualization tool (i.g Plotly) to make results easy to realize.
 
+# Data Source
+
+[Amazon Cell Phone Reviews](https://www.kaggle.com/grikomsn/amazon-cell-phones-reviews)
+
 ## Libraries we need
 
 1. Numpy
