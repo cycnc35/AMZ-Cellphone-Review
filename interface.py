@@ -77,6 +77,14 @@ def main():
                 html.Br(),
                 dcc.Graph(id="sales_volume", figure=brand_counts(review_item)),
                 html.Br(),
+                dcc.Dropdown(
+                    id='brand_dropdown0',
+                    options=[{'label': name, 'value': name} for name in brands],
+                    value='ASUS'
+                ),
+                html.Br(),
+                dcc.Graph(id="sales_volume_of_type"),
+                html.Br(),
                 dcc.Graph(id="overall_rating",
                           figure=plot_stacked_rating_hist_allbrands(review_item)),
                 html.Br(),
@@ -153,6 +161,21 @@ def main():
         res += helpful_vote.loc[helpful_vote['asin'] == selected_value]['body']
 
         return res
+    
+    @app.callback(
+        Output('sales_volume_of_type', 'figure'),
+        [Input('brand_dropdown0', 'value')]
+    )
+    def type_counts_of_brand(brand):
+        brand_type = review_item.groupby(["brand", "asin"]).size()
+        labels = brand_type.loc[brand, :].index.get_level_values(1)
+        values = brand_type.loc[brand, :].values
+        layout = go.Layout(title={"text":"Sales Volume of Type in Each Brand", 
+                                  "xanchor": "left",'yanchor': 'top', 'x':0.35, 'y':0.9}, font={"size":20})
+        data = go.Data([go.Pie(labels=labels, values=values, textinfo='none')])
+        figure = go.Figure(data=data,layout=layout)
+
+        return figure
 
     app.run_server(debug=True)
 
