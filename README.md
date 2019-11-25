@@ -49,7 +49,9 @@ terminal. After running, there is an url link showing in the result, copy the li
 browser. Now, you can start using the dashboard.
 
 In the dashboard, there are some dropdowns that you can choose which brand you are interested in.
+
 If you are interested in ASUS, then choose ASUS.
 ![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/image1.png)
+
 If you are interested in Apple, then chhose Apple.
 ![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/image2.png)
