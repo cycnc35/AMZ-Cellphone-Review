@@ -28,6 +28,9 @@ To install these libraries you can simply type the command below in your termina
 |   Data
 |   |   items.csv
 |   |   reviews.csv
+|-- images
+|   | images1.png
+|   | images2.png
 |-- Homework\ 5_\ Project\ Design.docx
 |-- LICENSE
 |-- README.md
@@ -46,5 +49,5 @@ terminal. After running, there is an url link showing in the result, copy the li
 browser. Now, you can start using the dashboard.
 
 In the dashboard, there are some dropdowns that you can choose which brand you are interested in.
-![Tutorial](/images/images1.png)
-![Tutorial](/images/images2.png)
+![Tutorial](images/images1.png)
+![Tutorial](images/images2.png)
