@@ -44,10 +44,9 @@ To install these libraries you can simply type the command below in your termina
 ```
 
 ## Tutorial
-After cloning the repository from our github, you can simply run the interface.py file in your
-terminal. After running the file, there is an url link showing in the result, copy the link and 
-paste to the browser. Now, you can start using the dashboard.
-
+After cloning the repository using `git clone https://github.com/cycnc35/AMZ-Cellphone-Review.git`, 
+you can simply run the interface.py file in your terminal. After running the file, there is an url
+link showing in the result, copy the link and paste to the browser. Now, you can start using the dashboard.
 In the dashboard, there are some dropdowns that you can choose which brand you are interested in.
 
 If you are interested in ASUS, then choose ASUS.
