@@ -49,5 +49,5 @@ terminal. After running, there is an url link showing in the result, copy the li
 browser. Now, you can start using the dashboard.
 
 In the dashboard, there are some dropdowns that you can choose which brand you are interested in.
-![Tutorial](images/images1.png)
-![Tutorial](images/images2.png)
+![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/image1.png)
+![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/image2.png)
