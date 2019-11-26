@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cycnc35.svg?branch=master)](https://travis-ci.org/cycnc35)
+[![Build Status](https://travis-ci.com/cycnc35/AMZ-Cellphone-Review.svg?branch=master)](https://travis-ci.com/cycnc35/AMZ-Cellphone-Review)
 # AMZ-Cellphone-Review
 
 This project is about to analyze consumers' opinions about cellphones they bought on Amazon.
