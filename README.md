@@ -46,6 +46,7 @@ To install these libraries you can simply type the command below in your termina
 |-- README.md
 |-- requirements.txt
 |-- setup.py
+|-- .travis.yml
 |-- .gitignore
 ```
 
