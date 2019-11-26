@@ -3,7 +3,7 @@ Test module for functions in visualization_functions.py
 """
 import unittest
 import pandas as pd
-from visualization_functions import data_preprocessing, comp_stacked_rating_hist_allbrands,\
+from ..visualization_functions import data_preprocessing, comp_stacked_rating_hist_allbrands,\
      create_helpful_vote_dict
 
 
