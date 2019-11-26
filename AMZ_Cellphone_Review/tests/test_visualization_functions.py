@@ -3,8 +3,13 @@ Test module for functions in visualization_functions.py
 """
 import unittest
 import pandas as pd
+import os
 from ..visualization_functions import data_preprocessing, comp_stacked_rating_hist_allbrands,\
      create_helpful_vote_dict
+
+
+item_path = "./AMZ_Cellphone_Review/data/items.csv"
+review_path = "./AMZ_Cellphone_Review/data/reviews.csv"
 
 
 class UnitTests(unittest.TestCase):
@@ -17,6 +22,7 @@ class UnitTests(unittest.TestCase):
         Test for prep_data to check whether the merged data frame
         is of correct dimensions
         """
+        print(os.getcwd())
         items = pd.read_csv(item_path)
         reviews = pd.read_csv(review_path)
         review_item, _, _, _ = data_preprocessing(items, reviews)
@@ -65,6 +71,4 @@ class UnitTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    item_path = "Data/items.csv"
-    review_path = "Data/reviews.csv"
     unittest.main()
