@@ -1,3 +1,9 @@
+"""
+This module provides function to process data files.
+"create_helpful_vote_dict" create a data frame with highest vote for each type of cell phones
+"data_preprocessing" merges items and reviews by product id
+"""
+
 
 def create_helpful_vote_dict(helpful_vote, brands):
     """

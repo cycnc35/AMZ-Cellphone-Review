@@ -26,7 +26,7 @@ To install these libraries you can simply type the command below in your termina
 
 ## Directory Structure
 ```
-|-- AMZ-Cellphone-Review
+|-- amz_cellphone_review
 |   |   | interface.py
 |   |   | visualization_functions.py
 |   |   | data
@@ -51,10 +51,16 @@ To install these libraries you can simply type the command below in your termina
 ```
 
 ## Tutorial
-After cloning the repository using `git clone https://github.com/cycnc35/AMZ-Cellphone-Review.git`, 
-you can simply run the interface.py file in your terminal. After running the file, there is an url
-link showing in the result, copy the link and paste to the browser. Now, you can start using the dashboard.
-In the dashboard, there are some dropdowns that you can choose which brand you are interested in.
+1. clone the repository: `git clone https://github.com/cycnc35/AMZ-Cellphone-Review.git`.
+
+2. go to amz_cellphone_review/ folder, and run `python interface.py`. 
+
+3. After running `python interface.py`, a url link will show in the result. Click on it and open it on 
+the browser. Now, you can start using the dashboard.
+
+4. In the dashboard, there are some dropdown boxes that you can interact with.
+
+Examples are shown as below.
 
 If you are interested in ASUS, then choose ASUS.
 ![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/image1.png)
