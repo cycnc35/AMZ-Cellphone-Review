@@ -51,14 +51,17 @@ To install these libraries you can simply type the command below in your termina
 ```
 
 ## Tutorial
-1. clone the repository: `git clone https://github.com/cycnc35/AMZ-Cellphone-Review.git`.
+1. Clone the repository: `git clone https://github.com/cycnc35/AMZ-Cellphone-Review.git`.
 
-2. go to amz_cellphone_review/ folder, and run `python interface.py`. 
+2. Go to amz_cellphone_review/ folder, and run `python interface.py`.
+![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/run_interface.png)
 
 3. After running `python interface.py`, a url link will show in the result. Click on it and open it on 
 the browser. Now, you can start using the dashboard.
+![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/run_interface_2.png)
 
 4. In the dashboard, there are some dropdown boxes that you can interact with.
+![Tutorial](https://github.com/cycnc35/AMZ-Cellphone-Review/blob/master/images/dashboard.png)
 
 Examples are shown as below.
 
