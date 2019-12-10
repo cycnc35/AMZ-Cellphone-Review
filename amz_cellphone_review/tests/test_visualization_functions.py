@@ -3,7 +3,6 @@ Test module for functions in visualization_functions.py
 """
 import unittest
 import pandas as pd
-import os
 from ..preprocessing import data_preprocessing, create_helpful_vote_dict
 from ..visualization_functions import comp_stacked_rating_hist_allbrands
 
@@ -17,43 +16,6 @@ class UnitTests(unittest.TestCase):
     This class contains test functions to test whether visualization_functions.py
     works correctly, including preprocessing, computing statistics, operating data frames.
     """
-
-    def test_data_preprocessing(self):
-        """
-        Test for prep_data to check whether the merged data frame
-        is of correct dimensions
-        """
-        print(os.getcwd())
-        items = pd.read_csv(item_path)
-        reviews = pd.read_csv(review_path)
-        review_item, _, _, _ = data_preprocessing(items, reviews)
-
-        self.assertEqual(review_item.shape[1], items.shape[1] + reviews.shape[1] - 1)
-
-    def test_data_preprocessing_second(self):
-        """
-        Test for prep_data to check whether the merged data frame
-        is of correct dimensions
-        """
-        print(os.getcwd())
-        items = pd.read_csv(item_path)
-        reviews = pd.read_csv(review_path)
-        review_item, _, _, _ = data_preprocessing(items, reviews)
-
-        self.assertEqual(review_item.shape[0], reviews.shape[0])
-
-    def test_data_preprocessing_third(self):
-        """
-        Test for prep_data to check whether the 'brands' has the same length
-        """
-        print(os.getcwd())
-        items = pd.read_csv(item_path)
-        reviews = pd.read_csv(review_path)
-        review_item, _, brands, _ = data_preprocessing(items, reviews)
-        nums_brands = len(sorted(list(set(review_item["brand"]))))
-
-        self.assertEqual(nums_brands, len(brands))
-
     def test_create_helpful_vote_dict(self):
         """
         Test for create_helpful_vote_dict to check whether total length of
@@ -68,15 +30,12 @@ class UnitTests(unittest.TestCase):
         brands = sorted(list(set(review_item["brand"])))
         helpful_vote_dict = create_helpful_vote_dict(helpful_vote, brands)
         total_len = 0  # accumulate length of each element in helpful_vote_dict
-        same_columns = True
         for key in helpful_vote_dict:
             total_len += helpful_vote_dict[key].shape[0]
-            if list(helpful_vote_dict[key].columns) != list(helpful_vote.columns):
-                same_columns = False
 
         self.assertEqual(helpful_vote.shape[0], total_len)
 
-    def test_create_helpful_vote_dict_second(self):
+    def test_create_helpful_vote_dict_2(self):
         """
         Test for create_helpful_vote_dict to check whether columns in helpful_vote_dict
         are the same as those of helpful_vote
@@ -117,4 +76,3 @@ class UnitTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-

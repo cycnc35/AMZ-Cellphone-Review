@@ -18,6 +18,7 @@ def create_helpful_vote_dict(helpful_vote, brands):
         vote_dict[name] = helpful_vote[helpful_vote['brand'] == name]
     return vote_dict
 
+
 def data_preprocessing(items, reviews):
     """
     Do data pre-processing, merge to data into one named "review_item"
