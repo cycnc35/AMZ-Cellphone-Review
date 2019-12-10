@@ -42,6 +42,8 @@ To install these libraries you can simply type the command below in your termina
 |   | Functional_specification.md
 |   | Homework\ 5_\ Project\ Design.docx
 |   | technologies_reviews.pptx
+|   | project_presentation.pptx
+|   | project_presentation.pdf
 |-- images
 |   | images1.png
 |   | images2.png
