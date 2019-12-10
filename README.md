@@ -29,11 +29,14 @@ To install these libraries you can simply type the command below in your termina
 |-- amz_cellphone_review
 |   |   | interface.py
 |   |   | visualization_functions.py
+|   |   | preprocessing.py
+|   |   | __init__.py
 |   |   | data
 |   |   |   | items.csv
 |   |   |   | reviews.csv
-|   |   | test
-|   |   |   | test_visualization_functions.py
+|   |   | tests
+|   |   |   | __init__.py
+|   |   |   | test_visualization_functions.py
 |-- Docs
 |   | Component_specification.md
 |   | Functional_specification.md
