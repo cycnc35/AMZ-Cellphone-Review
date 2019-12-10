@@ -47,6 +47,9 @@ To install these libraries you can simply type the command below in your termina
 |-- images
 |   | images1.png
 |   | images2.png
+|   | dashboard.png
+|   | run_interface.png
+|   | run_interface_2.png
 |-- LICENSE
 |-- README.md
 |-- requirements.txt
