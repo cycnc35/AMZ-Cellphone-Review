@@ -2,7 +2,7 @@ matplotlib == 3.1.1
 numpy == 1.16.2
 pandas == 0.25.1
 plotly == 4.1.1
-Dash == 1.6.1
+Dash == 2.15.0
 pytest == 4.6.3
 coveralls
 pytest-cov
